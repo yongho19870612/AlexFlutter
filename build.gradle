@@ -1,5 +1,5 @@
 plugins {
-    id 'org.springframework.boot' version '2.6.7'
+    id 'org.springframework.boot' version '2.6.6'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
     id 'java'
 }
@@ -8,13 +8,30 @@ group = 'com.agent'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.1'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    implementation 'org.apache.httpcomponents:httpclient:4.5'
+    //implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    implementation 'com.googlecode.json-simple:json-simple:1.1.1'
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20160810'
+    implementation 'com.google.code.gson:gson:2.8.7'
+    //implementation 'org.slf4j:slf4j-api:1.7.7:junit:junit:4.12:javax.servlet:javax.servlet-api:3.1.0'
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
+    annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'mysql:mysql-connector-java'
+    //runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
 }
 
 tasks.named('test') {
